@@ -1,0 +1,2 @@
+# JFP12
+This here repository contains the implementation of the Tetris challenge I had to solve for the JFP( Journeé Francilienne de Programmation/ Ile-de-France Programming Day) which is a competition that is organised each year by the three major players in Parisian education, Université Paris-Saclay, Université Paris Cité and Sorbonne Université; this year's edition took place at Sorbonne and man was it fun =). 
