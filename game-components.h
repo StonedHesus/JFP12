@@ -2,8 +2,8 @@
 #define GAME_COMPONENTS_H 
 
 // Symbolic constants of the file.
-#define NUMBER_OF_ROWS 24
-#define NUMBER_OF_COLUMNS 12
+#define NUMBER_OF_ROWS 24l
+#define NUMBER_OF_COLUMNS 12l
 
 
 extern void initialise_board(void);

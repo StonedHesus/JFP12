@@ -196,7 +196,7 @@ extern void print_board(FILE * stream){
     // TODO: ADD a timer so as to gain control of the output flow.
 
     // Clear the initial screen so as to output the matrix at the top of the console.
-    system("clear");
+    //system("clear");
 
     // Retrieve a reference to the current board.
     long ** current_board = retrieve_board();
@@ -225,7 +225,7 @@ extern void print_board(FILE * stream){
     // Liberate the pointer.
     free(current_board);
     // Clear the terminal so as to make room for the next frame to be rendered in the exact same spot.
-    system("clear");
+    //system("clear");
 }
 extern int read_seed(FILE * input_file){
     /**

@@ -4,15 +4,16 @@
 
 // Custom headers for the project.
 #include "second-task.h"
+#include "game-components.h"
 
 
 // Prototypes of static method of the compilation unit.
 
 // Symbolic constants of the file.
 
-// Implemenation of static methods.
+// Implementations of static methods.
 
-// Implemenations of external methods belonging to the header of the compilation unit.
+// Implementations of external methods belonging to the header of the compilation unit.
 extern long place_piece(long piece_type, long target_row, long target_column, long number_of_rotations){
     /**
     * @param piece_type; a number between 0 and 7 which indicates the type of piece which is being considered,
@@ -34,4 +35,12 @@ extern long place_piece(long piece_type, long target_row, long target_column, lo
     // Retrieve the piece and apply the rotations.
 
     // Check to see whether the piece fits or not.
+
+    // Retrieve the board in its current state.
+    long ** board = retrieve_board();
+
+    // Finally, if the piece fits then place to the place indicated by the given coordinates.
+    board[target_row][target_column] = piece_type;
+    return 0;
 }
+

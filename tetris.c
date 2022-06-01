@@ -6,6 +6,7 @@
 // Custom headers for the project.
 #include "game-components.h"
 #include "io.h"
+#include "second-task.h"
 
 // Prototypes of static method of the compilation unit.
 
@@ -15,6 +16,8 @@
 int main(void){
 
     initialise_board();
+    print_board(stdout);
+    place_piece(1, 7, 2, 2);
     print_board(stdout);
     return EXIT_SUCCESS;
 }
