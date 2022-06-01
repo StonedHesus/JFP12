@@ -193,6 +193,11 @@ extern void print_board(FILE * stream){
     // Make sure that the given stream is valid.
     assert(stream);
 
+    // TODO: ADD a timer so as to gain control of the output flow.
+
+    // Clear the initial screen so as to output the matrix at the top of the console.
+    system("clear");
+
     // Retrieve a reference to the current board.
     long ** current_board = retrieve_board();
 
@@ -215,8 +220,12 @@ extern void print_board(FILE * stream){
         fprintf(stream, "\n");
     }
 
+    fprintf(stream, "\nScore: %d\n", 0);
+
     // Liberate the pointer.
     free(current_board);
+    // Clear the terminal so as to make room for the next frame to be rendered in the exact same spot.
+    system("clear");
 }
 extern int read_seed(FILE * input_file){
     /**
