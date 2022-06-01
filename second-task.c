@@ -34,4 +34,4 @@ extern long place_piece(long piece_type, long target_row, long target_column, lo
     // Retrieve the piece and apply the rotations.
 
     // Check to see whether the piece fits or not.
-} 
+}

@@ -118,7 +118,7 @@ static char * _read_seed(FILE * input_file){
     return seed;
 }
 
-// Externs methods implementations.
+// Extern methods implementations.
 extern void read_and_respond_to_all_input_files(){
     /**
     * @param void; this method takes no formal arguments upon entry.
@@ -160,23 +160,25 @@ extern void read_and_respond_to_all_input_files(){
 
             strcpy(location_of_current_job, PATH_TO_INPUT_DIRECTORY);
             strcpy(location_of_current_job + length_path_to_input_directory, "/");
-            strcpy(length_current_file_name + length_path_to_input_directory + 1, current_dirent_object->d_name);
-            strcpy(length_current_file_name + length_path_to_input_directory + length_current_file_name + 2, '\0');
+            strcpy(location_of_current_job + length_current_file_name + length_path_to_input_directory + 1,
+                   current_dirent_object->d_name);
+            strcpy(location_of_current_job + length_current_file_name + length_path_to_input_directory +
+            length_current_file_name + 2, "\0");
 
-            FILE *temporary = fopen(location_of_current_job, 'r');
+            FILE *temporary = fopen(location_of_current_job, "rs");
 
             if(temporary == NULL){
 
                 // If the file could not be opened then print a silent error message in the terminal and continue the execution of the program.
                 printf("[!] The file %s could not be opened.\n", current_dirent_object->d_name);
-            } else solve_first_task(temporary, _retrieve_index_number(current_dirent_object->d_name));
+            } //else solve_first_task(temporary, _retrieve_index_number(current_dirent_object->d_name));
         }
             
 
     }
 
     // Close the directory.
-    closedir(current_dirent_object);
+    closedir(curernt_directory);
 }
 
 extern void print_board(FILE * stream){
@@ -206,15 +208,15 @@ extern void print_board(FILE * stream){
 
             if(current_board[i][j] == 0)
                 fprintf(stream, "- ");
-            else 
+            else
                 fprintf(stream, "%ld ", current_board[i][j]);
         }
 
         fprintf(stream, "\n");
     }
-    
+
     // Liberate the pointer.
-    //free(current_board);
+    free(current_board);
 }
 extern int read_seed(FILE * input_file){
     /**
