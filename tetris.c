@@ -15,6 +15,7 @@
 // Main method of the software.
 int main(void){
 
+    print_game_title();
     initialise_board();
     print_board(stdout);
     place_piece(1, 7, 2, 2);

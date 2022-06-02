@@ -7,4 +7,8 @@ extern void print_board(FILE * stream);
 
 extern void read_and_respond_to_all_input_files(void);
 
+// Methods which deal with the manner in which the game is presented to the user and which manipulate the terminal.
+extern void print_game_title();
+extern int select_game_mode();
+
 #endif //IO_H

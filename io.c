@@ -5,6 +5,8 @@
 #include <ctype.h>
 #include <assert.h>
 #include <dirent.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
 
 // Custom headers for the project.
 #include "io.h"
@@ -119,6 +121,35 @@ static char * _read_seed(FILE * input_file){
 }
 
 // Extern methods implementations.
+extern void print_game_title(){
+    /**
+     * @param void; this function does not require any argument upon calling therefore being independent of the
+     *              current conditions of the environment
+     *
+     * Determine the machine on which we are, and based on this information open a new terminal of a specific size,
+     * size which can't be later alter, on which the title of the game will be displayed.
+     *
+     * @author Andrei-Paul Ionescu
+     */
+
+    // Get the dimensions of the current window.
+    struct winsize winsize;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &winsize);
+
+    // Make sure that the screen is empty to begin with.
+    system("clear");
+
+    // Print a welcome message in the middle of the screen.
+    const char * welcome_message = "Welcome to the demon of tetris\n";
+    for(long i = 0 ; i < winsize.ws_row/2 ; ++i)
+        printf("\n");
+
+    for(long i = 0 ; i < winsize.ws_col/2 - strlen(welcome_message) + 1 ; ++i)
+        printf(" ");
+
+    printf(welcome_message);
+}
+
 extern void read_and_respond_to_all_input_files(){
     /**
     * @param void; this method takes no formal arguments upon entry.
