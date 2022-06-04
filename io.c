@@ -18,6 +18,11 @@
 #define SEED_LENGTH_BUFFER 8
 #define PATH_TO_INPUT_DIRECTORY "input"
 
+#define DEFAULT "\033[0m" 
+#define CYAN "\033[36m"
+#define GREEN "\033[32m"
+#define RED "\033[31m"
+
 
 // Prototypes of static methods.
 static long _convert_string_to_int(char * string);
@@ -244,8 +249,18 @@ extern void print_board(FILE * stream){
 
             if(current_board[i][j] == 0)
                 fprintf(stream, "- ");
-            else
-                fprintf(stream, "%ld ", current_board[i][j]);
+            else {
+                switch (current_board[i][j])
+                {
+                case 1:
+                    fprintf(stream, "%s%ld%s", CYAN, current_board[i][j], DEFAULT);
+                    break;
+                
+                default:
+                    break;
+                }
+            }
+                
         }
 
         fprintf(stream, "\n");
